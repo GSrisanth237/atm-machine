@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="atm-machine">
+            <!-- Login Screen -->
+            <div id="loginScreen" class="screen active">
+                <h1>ATM MACHINE</h1>
+                <div class="form-group">
+                    <label for="accountNumber">Account Number:</label>
+                    <input type="text" id="accountNumber" placeholder="Enter account number" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label for="pin">PIN:</label>
+                    <input type="password" id="pin" placeholder="Enter PIN" maxlength="6">
+                </div>
+                <button onclick="login()" class="btn btn-primary">Login</button>
+                <div id="loginError" class="error-message"></div>
+                <div class="test-accounts">
+                    <p><strong>Test Accounts:</strong></p>
+                    <p>Account: 1001 | PIN: 1234</p>
+                    <p>Account: 1002 | PIN: 5678</p>
+                    <p>Account: 1003 | PIN: 9012</p>
+                </div>
+            </div>
+
+            <!-- Main Menu Screen -->
+            <div id="mainMenuScreen" class="screen">
+                <h1>Welcome, Account <span id="userName"></span>!</h1>
+                <div class="menu-options">
+                    <button onclick="showBalanceScreen()" class="btn btn-menu">Check Balance</button>
+                    <button onclick="showDepositScreen()" class="btn btn-menu">Deposit Money</button>
+                    <button onclick="showWithdrawScreen()" class="btn btn-menu">Withdraw Money</button>
+                    <button onclick="showChangePinScreen()" class="btn btn-menu">Change PIN</button>
+                    <button onclick="logout()" class="btn btn-danger">Logout</button>
+                </div>
+            </div>
+
+            <!-- Balance Screen -->
+            <div id="balanceScreen" class="screen">
+                <h2>Balance Information</h2>
+                <div class="info-box">
+                    <p><strong>Account Number:</strong> <span id="balanceAccountNum"></span></p>
+                    <p><strong>Current Balance:</strong> <span id="balanceAmount" class="balance-amount">₹0.00</span>
+                    </p>
+                </div>
+                <button onclick="backToMenu()" class="btn btn-secondary">Back to Menu</button>
+            </div>
+
+            <!-- Deposit Screen -->
+            <div id="depositScreen" class="screen">
+                <h2>Deposit Money</h2>
+                <div class="form-group">
+                    <label for="depositAmount">Enter Amount to Deposit:</label>
+                    <input type="number" id="depositAmount" placeholder="Enter amount" min="0" step="0.01">
+                </div>
+                <button onclick="deposit()" class="btn btn-primary">Deposit</button>
+                <button onclick="backToMenu()" class="btn btn-secondary">Cancel</button>
+                <div id="depositMessage" class="message"></div>
+            </div>
+
+            <!-- Withdraw Screen -->
+            <div id="withdrawScreen" class="screen">
+                <h2>Withdraw Money</h2>
+                <div class="form-group">
+                    <label for="withdrawAmount">Enter Amount to Withdraw:</label>
+                    <input type="number" id="withdrawAmount" placeholder="Enter amount" min="0" step="0.01">
+                </div>
+                <button onclick="withdraw()" class="btn btn-primary">Withdraw</button>
+                <button onclick="backToMenu()" class="btn btn-secondary">Cancel</button>
+                <div id="withdrawMessage" class="message"></div>
+            </div>
+
+            <!-- Change PIN Screen -->
+            <div id="changePinScreen" class="screen">
+                <h2>Change PIN</h2>
+                <div class="form-group">
+                    <label for="oldPin">Old PIN:</label>
+                    <input type="password" id="oldPin" placeholder="Enter old PIN" maxlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="newPin">New PIN:</label>
+                    <input type="password" id="newPin" placeholder="Enter new PIN" maxlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPin">Confirm New PIN:</label>
+                    <input type="password" id="confirmPin" placeholder="Confirm new PIN" maxlength="6">
+                </div>
+                <button onclick="changePin()" class="btn btn-primary">Change PIN</button>
+                <button onclick="backToMenu()" class="btn btn-secondary">Cancel</button>
+                <div id="pinMessage" class="message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

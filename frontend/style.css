@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.atm-machine {
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    color: #fff;
+}
+
+.screen {
+    display: none;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #00d4ff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b0b0b0;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #00d4ff;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00d4ff, #00ff88);
+    color: #000;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+}
+
+.btn-secondary {
+    background: #444;
+    color: #fff;
+    margin-right: 5px;
+    width: 48%;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: #555;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+}
+
+.btn-menu {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-menu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.menu-options {
+    margin: 20px 0;
+}
+
+.info-box {
+    background: rgba(0, 212, 255, 0.1);
+    border: 2px solid #00d4ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.info-box p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.balance-amount {
+    font-size: 32px;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.test-accounts {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    text-align: center;
+    border: 1px dashed #00d4ff;
+}
+
+.test-accounts p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #b0b0b0;
+}
+
+.test-accounts strong {
+    color: #00d4ff;
+}
+
+.error-message,
+.message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+.error-message {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff8e8e;
+    border: 1px solid #ff6b6b;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.message {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    display: none;
+}
+
+.message.show {
+    display: block;
+}
+
+.message.error {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff8e8e;
+    border: 1px solid #ff6b6b;
+}
+
+@media (max-width: 600px) {
+    .atm-machine {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
